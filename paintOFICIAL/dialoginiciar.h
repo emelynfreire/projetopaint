@@ -18,6 +18,7 @@ public:
     int getNumY();
     int getNumZ();
 
+
 private:
     Ui::DialogIniciar *ui;
 };

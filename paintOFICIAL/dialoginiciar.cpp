@@ -24,3 +24,4 @@ int DialogIniciar::getNumY(){
 int DialogIniciar::getNumZ(){
     return ui->spinBoxZ->value();
 }
+

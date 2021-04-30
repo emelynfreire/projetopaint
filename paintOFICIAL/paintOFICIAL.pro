@@ -12,12 +12,12 @@ SOURCES += \
     dialoginiciar.cpp \
     escultor.cpp \
     main.cpp \
-    mainwindow.cpp
+
 
 HEADERS += \
     dialoginiciar.h \
     escultor.h \
-    mainwindow.h
+
 
 FORMS += \
     dialoginiciar.ui \
