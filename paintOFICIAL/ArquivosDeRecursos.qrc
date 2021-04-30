@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/icones">
+        <file>icones/ajuda.jpg</file>
+        <file>icones/novo.png</file>
+        <file>icones/sair.png</file>
+        <file>icones/salvar.png</file>
+        <file>icones/salvo.png</file>
+    </qresource>
+</RCC>

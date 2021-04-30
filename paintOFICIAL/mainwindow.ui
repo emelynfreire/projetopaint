@@ -32,7 +32,41 @@
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-
+       <widget class="QWidget" name="horizontalLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>60</y>
+          <width>241</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QLCDNumber" name="lcdNumberR">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLCDNumber" name="lcdNumberG"/>
+         </item>
+         <item>
+          <widget class="QLCDNumber" name="lcdNumberB"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="Plotter" name="widget_2" native="true">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>7</y>
+          <width>239</width>
+          <height>51</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
      </item>
      <item>
@@ -194,6 +228,16 @@
      <string>Salvar</string>
     </property>
    </widget>
+   <widget class="PlotterMain" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>941</width>
+      <height>351</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -201,17 +245,37 @@
      <x>0</x>
      <y>0</y>
      <width>991</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPaint_3D">
     <property name="title">
      <string>Arquivo</string>
     </property>
+    <addaction name="actionNovo"/>
+    <addaction name="actionSalvar"/>
+    <addaction name="separator"/>
+    <addaction name="actionAjuda"/>
+    <addaction name="actionSair"/>
    </widget>
    <addaction name="menuPaint_3D"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNovo"/>
+   <addaction name="actionSalvar"/>
+   <addaction name="actionAjuda"/>
+   <addaction name="actionSair"/>
+  </widget>
   <action name="actionSalvar_arquivo">
    <property name="text">
     <string>Salvar arquivo</string>
@@ -222,9 +286,65 @@
     <string>Novo arquivo</string>
    </property>
   </action>
+  <action name="actionNovo">
+   <property name="icon">
+    <iconset resource="ArquivosDeRecursos.qrc">
+     <normaloff>:/icones/icones/novo.png</normaloff>:/icones/icones/novo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Novo</string>
+   </property>
+  </action>
+  <action name="actionSalvar">
+   <property name="icon">
+    <iconset resource="ArquivosDeRecursos.qrc">
+     <normaloff>:/icones/icones/salvar.png</normaloff>:/icones/icones/salvar.png</iconset>
+   </property>
+   <property name="text">
+    <string>Salvar</string>
+   </property>
+  </action>
+  <action name="actionAjuda">
+   <property name="icon">
+    <iconset resource="ArquivosDeRecursos.qrc">
+     <normaloff>:/icones/icones/ajuda.jpg</normaloff>:/icones/icones/ajuda.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>Ajuda</string>
+   </property>
+  </action>
+  <action name="actionSair">
+   <property name="icon">
+    <iconset resource="ArquivosDeRecursos.qrc">
+     <normaloff>:/icones/icones/sair.png</normaloff>:/icones/icones/sair.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sair</string>
+   </property>
+  </action>
  </widget>
-
- <resources/>
+ <customwidgets>
+  <customwidget>
+   <class>Plotter</class>
+   <extends>QWidget</extends>
+   <header>plotter.h</header>
+   <container>1</container>
+   <slots>
+    <slot>setColorRed(int)</slot>
+    <slot>setColorGreen(int)</slot>
+    <slot>setColorBlue(int)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>PlotterMain</class>
+   <extends>QWidget</extends>
+   <header>plottermain.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="ArquivosDeRecursos.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>horizontalSliderX</sender>
@@ -271,6 +391,102 @@
     <hint type="destinationlabel">
      <x>675</x>
      <y>575</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderR</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumberR</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>819</x>
+     <y>542</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>743</x>
+     <y>516</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderG</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumberG</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>850</x>
+     <y>560</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>864</x>
+     <y>516</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderB</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumberB</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>923</x>
+     <y>600</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>948</x>
+     <y>509</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderR</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>widget_2</receiver>
+   <slot>setColorRed(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>774</x>
+     <y>531</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>810</x>
+     <y>467</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderG</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>widget_2</receiver>
+   <slot>setColorGreen(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>842</x>
+     <y>557</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>893</x>
+     <y>481</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderB</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>widget_2</receiver>
+   <slot>setColorBlue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>962</x>
+     <y>592</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>969</x>
+     <y>471</y>
     </hint>
    </hints>
   </connection>

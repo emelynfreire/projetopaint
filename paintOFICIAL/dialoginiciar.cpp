@@ -25,3 +25,12 @@ int DialogIniciar::getNumZ(){
     return ui->spinBoxZ->value();
 }
 
+void DialogIniciar::on_buttonBox_accepted()
+{
+    int nx, ny, nz;
+
+    nx = this->getNumX();
+    ny = this->getNumY();
+    nz = this->getNumZ();
+
+}

@@ -5,6 +5,11 @@
 #include <sstream>
 #include <fstream>
 #include <vector>
+#include <dialog.h>
+#include <arquivosalvodialog.h>
+#include <dialogerror.h>
+
+
 
 using namespace std;
 
@@ -319,5 +324,6 @@ void Sculptor::writeOFF(char *filename){
 
     if(fout.is_open()){
         cout << "Arquivo.OFF salvo com sucesso!"<<endl;
+
     }
 }

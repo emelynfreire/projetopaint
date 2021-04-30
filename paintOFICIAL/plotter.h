@@ -19,7 +19,6 @@ public slots:
     void setColorRed(int _r);
     void setColorGreen(int g);
     void setColorBlue(int b);
-
 };
 
 #endif // PLOTTER_H

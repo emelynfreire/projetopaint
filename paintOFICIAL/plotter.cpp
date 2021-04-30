@@ -2,7 +2,6 @@
 #include <QPainter>
 #include <QBrush>
 #include <QPen>
-#include "mainwindow.h"
 
 Plotter::Plotter(QWidget *parent) : QWidget(parent)
 {
@@ -10,8 +9,6 @@ Plotter::Plotter(QWidget *parent) : QWidget(parent)
 }
 
 void Plotter::paintEvent(QPaintEvent *event){
-    MainWindow e;
-
     QPainter painter(this);
     QBrush brush;
     QPen pen;
@@ -25,6 +22,7 @@ void Plotter::paintEvent(QPaintEvent *event){
     painter.setBrush(brush);
     painter.setPen(pen);
     painter.drawRect(0,0,width(),height());
+
 }
 
 void Plotter::setColorRed(int _r)

@@ -14,6 +14,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    int getNumR();
+    int getNumG();
+    int getNumB();
 
 
 private slots:
@@ -21,5 +24,12 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+public slots:
+    void sairPaint();//funcao finalização programa
+    void abreDialogAjuda(void);
+    void salvoDialogSalvarArquivo();
+    void errorDialogSalvarArquivo();
+
 };
 #endif // MAINWINDOW_H
