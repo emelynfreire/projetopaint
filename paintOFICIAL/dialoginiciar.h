@@ -18,8 +18,6 @@ public:
     int getNumY();
     int getNumZ();
 
-private slots:
-    void on_buttonBox_accepted();
 
 private:
     Ui::DialogIniciar *ui;

@@ -32,14 +32,10 @@
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-
       </widget>
      </item>
      <item>
       <widget class="QSlider" name="horizontalSliderR">
-       <property name="maximum">
-        <number>255</number>
-       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -47,9 +43,6 @@
      </item>
      <item>
       <widget class="QSlider" name="horizontalSliderG">
-       <property name="maximum">
-        <number>255</number>
-       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -57,9 +50,6 @@
      </item>
      <item>
       <widget class="QSlider" name="horizontalSliderB">
-       <property name="maximum">
-        <number>255</number>
-       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -94,7 +84,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QLCDNumber" name="lcdNumber"/>
+        <widget class="QLabel" name="labelMaximoX">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -115,7 +109,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QLCDNumber" name="lcdNumber_2"/>
+        <widget class="QLabel" name="labelMaximoY">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -136,62 +134,56 @@
         </widget>
        </item>
        <item>
-        <widget class="QLCDNumber" name="lcdNumber_3"/>
+        <widget class="QLabel" name="labelMaximoZ">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget">
+   <widget class="QRadioButton" name="radioButtonPutVoxel">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>10</x>
       <y>10</y>
-      <width>215</width>
-      <height>31</height>
+      <width>111</width>
+      <height>20</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
-     <item>
-      <widget class="QRadioButton" name="radioButtonPutVoxel">
-       <property name="text">
-        <string>Colocar Voxel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButtonCutVoxel">
-       <property name="text">
-        <string>Retirar Voxel</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <property name="text">
+     <string>Colocar Voxel</string>
+    </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonIniciar">
+   <widget class="QRadioButton" name="radioButtonCutVoxel">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>10</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Retirar Voxel</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="framePrincipal">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>10</y>
-      <width>93</width>
-      <height>28</height>
+      <y>40</y>
+      <width>931</width>
+      <height>351</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Iniciar</string>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
     </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonSalvar">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>10</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Salvar</string>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
     </property>
    </widget>
   </widget>
@@ -208,6 +200,8 @@
     <property name="title">
      <string>Arquivo</string>
     </property>
+    <addaction name="actionNovo_arquivo"/>
+    <addaction name="actionSalvar_arquivo"/>
    </widget>
    <addaction name="menuPaint_3D"/>
   </widget>
@@ -223,56 +217,6 @@
    </property>
   </action>
  </widget>
-
  <resources/>
- <connections>
-  <connection>
-   <sender>horizontalSliderX</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>543</x>
-     <y>458</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>684</x>
-     <y>472</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSliderY</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_2</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>602</x>
-     <y>514</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>673</x>
-     <y>527</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSliderZ</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_3</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>583</x>
-     <y>572</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>675</x>
-     <y>575</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
